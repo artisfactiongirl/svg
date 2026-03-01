@@ -1,0 +1,19 @@
+<svg viewBox="0 0 500 40" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        .bg { fill: #2c3e50; rx: 8; }
+        .progress-bar { 
+            fill: #27ae60; 
+            rx: 8; 
+            width: 0%; 
+            animation: random-load 12s infinite linear; 
+        }
+        @keyframes random-load {
+            0% { width: 0%; } 10% { width: 30%; } 15% { width: 20%; }
+            25% { width: 55%; } 30% { width: 45%; } 45% { width: 85%; }
+            55% { width: 75%; } 70% { width: 95%; } 80% { width: 88%; }
+            90% { width: 100%; } 100% { width: 0%; }
+        }
+    </style>
+    <rect class="bg" width="100%" height="100%" />
+    <rect class="progress-bar" height="100%" />
+</svg>

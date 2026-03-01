@@ -1,0 +1,20 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Hintergrund -->
+  <rect width="200" height="200" fill="#000" />
+
+  <!-- Zentrierter Kreis mit Puls-Animation -->
+  <circle cx="100" cy="100" r="30" fill="none" stroke="#00FFFF" stroke-width="2">
+    <animate attributeName="r" values="30;60;30" dur="2s" repeatCount="indefinite" />
+    <animate attributeName="stroke-opacity" values="1;0.3;0" dur="2s" repeatCount="indefinite" />
+  </circle>
+
+  <circle cx="100" cy="100" r="60" fill="none" stroke="#00AAFF" stroke-width="2">
+    <animate attributeName="r" values="60;90;60" dur="3s" repeatCount="indefinite" />
+    <animate attributeName="stroke-opacity" values="0.7;0.2;0" dur="3s" repeatCount="indefinite" />
+  </circle>
+
+  <circle cx="100" cy="100" r="90" fill="none" stroke="#0055FF" stroke-width="2">
+    <animate attributeName="r" values="90;120;90" dur="4s" repeatCount="indefinite" />
+    <animate attributeName="stroke-opacity" values="0.5;0.1;0" dur="4s" repeatCount="indefinite" />
+  </circle>
+</svg>   

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="800"
+   height="600"
+   viewBox="0 0 800 600"
+   version="1.1"
+   id="svg13"
+   sodipodi:docname="regen4.svg"
+   inkscape:version="1.4.3 (fcd0343856, 2026-01-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview13"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.50375"
+     inkscape:cx="400"
+     inkscape:cy="300.74442"
+     inkscape:window-width="1320"
+     inkscape:window-height="691"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg13" />
+  <defs
+     id="defs2">
+    <!-- Ein leichter Glüheffekt für die Regentropfen -->
+    <filter
+       id="glow"
+       x="-1.4"
+       y="-0.38888888"
+       width="3.8"
+       height="1.7777778">
+      <feGaussianBlur
+         stdDeviation="1"
+         result="coloredBlur"
+         id="feGaussianBlur1" />
+      <feMerge
+         id="feMerge2">
+        <feMergeNode
+           in="coloredBlur"
+           id="feMergeNode1" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode2" />
+      </feMerge>
+    </filter>
+  </defs>
+  <style
+     id="style2">
+    .background {
+      fill: #050508;
+    }
+
+    .drop {
+      stroke: #a0c4ff;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      opacity: 0.6;
+      filter: url(#glow);
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px) translateX(0);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.6;
+      }
+      90% {
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateY(700px) translateX(-20px);
+        opacity: 0;
+      }
+    }
+
+    /* Variationen für Geschwindigkeit und Position */
+    .d1 { animation-duration: 0.8s; animation-delay: 0s; }
+    .d2 { animation-duration: 1.2s; animation-delay: 0.2s; }
+    .d3 { animation-duration: 1.0s; animation-delay: 0.5s; }
+    .d4 { animation-duration: 0.7s; animation-delay: 0.3s; }
+    .d5 { animation-duration: 1.5s; animation-delay: 0.1s; }
+  </style>
+  <!-- Hintergrund -->
+  <rect
+     width="100%"
+     height="100%"
+     class="background"
+     id="rect2"
+     style="fill:#282840;fill-opacity:1" />
+  <!-- Regentropfen (Beispielhafte Verteilung) -->
+  <line
+     class="drop d1"
+     x1="100"
+     y1="0"
+     x2="95"
+     y2="20"
+     id="line2"
+     style="fill:#0000ff;stroke:#00ffff;stroke-width:9.2;stroke-dasharray:none" />
+  <line
+     class="drop d2"
+     x1="200"
+     y1="0"
+     x2="195"
+     y2="25"
+     id="line3"
+     style="fill:#0000ff;stroke:#00ffff;stroke-width:9.2;stroke-dasharray:none" />
+  <line
+     class="drop d3"
+     x1="300"
+     y1="0"
+     x2="295"
+     y2="20"
+     id="line4"
+     style="fill:#0000ff;stroke:#00ffff;stroke-width:9.2;stroke-dasharray:none" />
+  <line
+     class="drop d4"
+     x1="450"
+     y1="0"
+     x2="445"
+     y2="22"
+     id="line5"
+     style="fill:#0000ff;stroke:#00ffff;stroke-width:9.2;stroke-dasharray:none" />
+  <line
+     class="drop d5"
+     x1="550"
+     y1="0"
+     x2="545"
+     y2="18"
+     id="line6"
+     style="fill:#0000ff;stroke:#00ffff;stroke-width:9.2;stroke-dasharray:none" />
+  <line
+     class="drop d2"
+     x1="650"
+     y1="0"
+     x2="645"
+     y2="25"
+     id="line7"
+     style="fill:#0000ff;stroke:#00ffff;stroke-width:9.2;stroke-dasharray:none" />
+  <line
+     class="drop d1"
+     x1="750"
+     y1="0"
+     x2="745"
+     y2="20"
+     id="line8"
+     style="fill:#0000ff;stroke:#00ffff;stroke-width:9.2;stroke-dasharray:none" />
+  <line
+     class="drop d3"
+     x1="50"
+     y1="0"
+     x2="45"
+     y2="20"
+     id="line9"
+     style="fill:#0000ff;stroke:#00ffff;stroke-width:9.2;stroke-dasharray:none" />
+  <line
+     class="drop d4"
+     x1="380"
+     y1="0"
+     x2="375"
+     y2="22"
+     id="line10"
+     style="fill:#0000ff;stroke:#00ffff;stroke-width:9.2;stroke-dasharray:none" />
+  <line
+     class="drop d5"
+     x1="600"
+     y1="0"
+     x2="595"
+     y2="18"
+     id="line11"
+     style="fill:#0000ff;stroke:#00ffff;stroke-width:9.2;stroke-dasharray:none" />
+  <line
+     class="drop d1"
+     x1="250"
+     y1="0"
+     x2="245"
+     y2="20"
+     id="line12"
+     style="fill:#0000ff;stroke:#00ffff;stroke-width:9.2;stroke-dasharray:none" />
+  <line
+     class="drop d3"
+     x1="700"
+     y1="0"
+     x2="695"
+     y2="20"
+     id="line13"
+     style="fill:#0000ff;stroke:#00ffff;stroke-width:9.2;stroke-dasharray:none" />
+  <!-- Signatur -->
+  <text
+     x="400"
+     y="580"
+     fill="#a0c4ff"
+     font-family="Verdana"
+     font-size="10"
+     text-anchor="middle"
+     opacity="0.3"
+     id="text13">
+    DYNAMIC RAIN OVERLAY // GENERATED BY GEMINI 3 FLASH
+  </text>
+</svg>

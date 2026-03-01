@@ -1,0 +1,23 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .square {
+      fill: none;
+      stroke: #8b5cf6;
+      stroke-width: 1;
+      transform-origin: center;
+      animation: pulse-rotate 4s infinite ease-in-out;
+    }
+    @keyframes pulse-rotate {
+      0%, 100% { transform: rotate(0deg) scale(1); opacity: 0.5; }
+      50% { transform: rotate(180deg) scale(0.5); opacity: 1; }
+    }
+    .s1 { animation-delay: 0s; }
+    .s2 { animation-delay: 0.5s; }
+    .s3 { animation-delay: 1s; }
+    .s4 { animation-delay: 1.5s; }
+  </style>
+  <rect class="square s1" x="10" y="10" width="80" height="80" />
+  <rect class="square s2" x="20" y="20" width="60" height="60" />
+  <rect class="square s3" x="30" y="30" width="40" height="40" />
+  <rect class="square s4" x="40" y="40" width="20" height="20" />
+</svg>

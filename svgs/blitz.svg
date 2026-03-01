@@ -1,0 +1,15 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Hintergrund -->
+  <rect width="200" height="200" fill="#111" />
+
+  <!-- Blitz-Pfad -->
+  <path d="M100,20 L60,120 L110,90 L80,180 L140,70 L90,100 L130,20" 
+        fill="none" 
+        stroke="#FFF" 
+        stroke-width="4" 
+        stroke-linecap="round">
+    <!-- Blink-Animation -->
+    <animate attributeName="opacity" values="0;1;0" dur="0.5s" repeatCount="indefinite" />
+    <animate attributeName="stroke" values="#FFF;#FFD700;#FFF" dur="0.5s" repeatCount="indefinite" />
+  </path>
+</svg>   
