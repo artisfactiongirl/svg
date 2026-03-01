@@ -1,33 +1,391 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SVG Collection Gallery</title>
+    <title>Meine SVG Sammlung</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        .gallery { display: flex; flex-wrap: wrap; }
-        .gallery-item { margin: 10px; text-align: center; }
-        img { max-width: 100%; height: auto; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Gallery Grid */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        /* SVG Card */
+        .svg-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .svg-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .svg-preview {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .svg-preview img,
+        .svg-preview svg {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .svg-info {
+            padding: 20px;
+        }
+
+        .svg-info h3 {
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+
+        .svg-info p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .svg-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .svg-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-view {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-view:hover {
+            background: #764ba2;
+        }
+
+        .btn-download {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .btn-download:hover {
+            background: #e0e0e0;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease-out 0.1s both;
+        }
+
+        .filter-btn {
+            background: white;
+            color: #667eea;
+            border: 2px solid white;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            color: white;
+            padding: 30px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 20px;
+            }
+
+            .svg-preview {
+                height: 200px;
+            }
+
+            .filter-btn {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>SVG Collection Gallery</h1>
-    <div class="gallery">
-        <!-- SVG items will be added here -->
-        <div class="gallery-item">
-            <h2>Item 1</h2>
-            <img src="path/to/your/svg1.svg" alt="SVG 1">
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>🎨 Meine SVG Sammlung</h1>
+            <p>Eine handverlesene Kollektion von Vektorgrafikdesigns</p>
+        </header>
+
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <button class="filter-btn active" onclick="filterGallery('all')">Alle</button>
+            <button class="filter-btn" onclick="filterGallery('icons')">Icons</button>
+            <button class="filter-btn" onclick="filterGallery('illustrations')">Illustrationen</button>
+            <button class="filter-btn" onclick="filterGallery('patterns')">Muster</button>
+            <button class="filter-btn" onclick="filterGallery('logos')">Logos</button>
         </div>
-        <div class="gallery-item">
-            <h2>Item 2</h2>
-            <img src="path/to/your/svg2.svg" alt="SVG 2">
+
+        <!-- Gallery -->
+        <div class="gallery" id="gallery">
+            <!-- SVG Cards werden hier eingefügt -->
         </div>
-        <div class="gallery-item">
-            <h2>Item 3</h2>
-            <img src="path/to/your/svg3.svg" alt="SVG 3">
-        </div>
-        <!-- Add more items as needed -->
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2026 artisfactiongirl | SVG Sammlung</p>
+            <p><a href="https://github.com/artisfactiongirl/svg" target="_blank">GitHub Repository</a></p>
+        </footer>
     </div>
+
+    <script>
+        // Beispiel-SVG Daten
+        const svgData = [
+            {
+                id: 1,
+                title: 'Herz Icon',
+                description: 'Ein einfaches Herz-Icon für verschiedene Anwendungen',
+                category: 'icons',
+                tags: ['herz', 'liebe', 'icon'],
+                preview: '❤️',
+                file: 'heart.svg'
+            },
+            {
+                id: 2,
+                title: 'Sterne Muster',
+                description: 'Wiederholendes Sternen-Muster für Hintergründe',
+                category: 'patterns',
+                tags: ['sterne', 'muster', 'hintergrund'],
+                preview: '⭐',
+                file: 'stars-pattern.svg'
+            },
+            {
+                id: 3,
+                title: 'Natur Illustration',
+                description: 'Eine schöne Illustration der Natur mit Bäumen und Bergen',
+                category: 'illustrations',
+                tags: ['natur', 'landschaft', 'illustration'],
+                preview: '🏞️',
+                file: 'nature.svg'
+            },
+            {
+                id: 4,
+                title: 'Logo Design',
+                description: 'Modernes Logo-Design für kreative Projekte',
+                category: 'logos',
+                tags: ['logo', 'brand', 'design'],
+                preview: '🎯',
+                file: 'logo.svg'
+            },
+            {
+                id: 5,
+                title: 'Geometrische Formen',
+                description: 'Abstrakte geometrische Formen und Muster',
+                category: 'patterns',
+                tags: ['geometrie', 'abstrakt', 'muster'],
+                preview: '⬢',
+                file: 'geometry.svg'
+            },
+            {
+                id: 6,
+                title: 'Tier Icons',
+                description: 'Sammlung von verschiedenen Tier-Icons',
+                category: 'icons',
+                tags: ['tiere', 'icon', 'kollektion'],
+                preview: '🐾',
+                file: 'animals.svg'
+            }
+        ];
+
+        // Gallery rendern
+        function renderGallery(data) {
+            const gallery = document.getElementById('gallery');
+            gallery.innerHTML = data.map(svg => `
+                <div class="svg-card" data-category="${svg.category}">
+                    <div class="svg-preview">
+                        <span style="font-size: 100px;">${svg.preview}</span>
+                    </div>
+                    <div class="svg-info">
+                        <h3>${svg.title}</h3>
+                        <p>${svg.description}</p>
+                        <div class="svg-tags">
+                            ${svg.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        </div>
+                        <div class="svg-actions">
+                            <button class="btn btn-view" onclick="viewSVG('${svg.file}')">Ansehen</button>
+                            <button class="btn btn-download" onclick="downloadSVG('${svg.file}')">⬇️</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filter Funktion
+        function filterGallery(category) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const cards = document.querySelectorAll('.svg-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // SVG anschauen
+        function viewSVG(filename) {
+            alert(`SVG wird angezeigt: ${filename}\n\nImplementieren Sie die Ansicht mit Ihrer SVG-Datei.`);
+            // window.open(`/svgs/${filename}`, '_blank');
+        }
+
+        // SVG herunterladen
+        function downloadSVG(filename) {
+            alert(`SVG wird heruntergeladen: ${filename}`);
+            // Hier könnten Sie die Download-Funktionalität implementieren
+        }
+
+        // Initialisierung
+        renderGallery(svgData);
+    </script>
 </body>
 </html>
